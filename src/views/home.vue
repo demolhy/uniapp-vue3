@@ -1,5 +1,7 @@
 <template>
-	<div class="van">123</div>
+	<div class="van">
+		<van-button type="primary" to="/detail">主要按钮</van-button>
+	</div>
 </template>
 
 <script>

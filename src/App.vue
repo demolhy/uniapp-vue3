@@ -9,12 +9,12 @@
 			<component :is="Component" v-if="!$route.meta.keepAlive"></component>
 		</transition>
 	</router-view>
-	<transition :name="navName">
-		<van-tabbar v-model="active">
-			<van-tabbar-item icon="home-o">标签</van-tabbar-item>
-			<van-tabbar-item icon="search">标签</van-tabbar-item>
-			<van-tabbar-item icon="friends-o">标签</van-tabbar-item>
-			<van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+	<transition :name="mainName">
+		<van-tabbar v-if="!$route.meta.navShow" v-model="active" @change="onChange" route>
+			<van-tabbar-item name="home" icon="home-o" replace to="/home">首页</van-tabbar-item>
+			<van-tabbar-item name="search" icon="search" replace to="/search">搜索</van-tabbar-item>
+			<van-tabbar-item name="friend" icon="friends-o" replace to="/friend">通讯录</van-tabbar-item>
+			<van-tabbar-item name="setting" icon="setting-o" replace to="/setting">设置</van-tabbar-item>
 		</van-tabbar>
 	</transition>
 </template>
@@ -23,7 +23,10 @@
 	console.log(123);
 	const isRouterAlive = true
 	const mainName = 'fade'
-	const active = 0
+	const active = 'home'
+	const onChange = index => {
+		console.log(index);
+	}
 </script>
 
 <style>

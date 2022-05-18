@@ -12,17 +12,42 @@ const router = createRouter({
 			path: '/home',
 			name: 'home',
 			meta: {
-				keepAlive: false
+				keepAlive: true
 			},
-			component: import('../views/home.vue')
+			component: () => import('../views/home.vue')
 		},
 		{
-			path: '/mine',
-			name: 'mine',
+			path: '/setting',
+			name: 'setting',
 			meta: {
 				keepAlive: true
 			},
-			component: import('../views/mine.vue')
+			component: () => import('../views/setting.vue')
+		},
+		{
+			path: '/search',
+			name: 'search',
+			meta: {
+				keepAlive: true
+			},
+			component: () => import('../views/search.vue')
+		},
+		{
+			path: '/friend',
+			name: 'friend',
+			meta: {
+				keepAlive: true
+			},
+			component: () => import('../views/friend.vue')
+		},
+		{
+			path: '/detail',
+			name: 'detail',
+			meta: {
+				keepAlive: true,
+				navShow: true
+			},
+			component: () => import('../views/detail.vue') 
 		}
 	]
 })
